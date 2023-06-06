@@ -1,0 +1,25 @@
+header {
+  background-color: transparent; /* Set the navbar background to transparent */
+  padding: 20px;
+  color: yellow; /* Set the text color to yellow */
+}
+
+nav ul {
+  display: flex;
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  justify-content: center; /* Align items horizontally in the center */
+}
+
+nav ul li {
+  margin: 0 30px; /* Add margin around each list item */
+}
+
+nav ul li a {
+  color: yellow; /* Set the text color of the buttons to yellow */
+  text-decoration: none;
+  font-size: 35px;
+  font-weight: bold;
+  padding: 10px 20px; /* Adjust padding for each button */
+}

@@ -1,0 +1,74 @@
+<app-navbar></app-navbar>
+<div class="container">
+  <form [formGroup]="registrationForm">
+    <label for="lastName">Last Name</label>
+    <input type="text" id="lastName" formControlName="lastName">
+
+    <label for="firstName">First Name</label>
+    <input type="text" id="firstName" formControlName="firstName">
+
+    <label for="phoneNumber">Phone Number</label>
+    <input type="text" id="phoneNumber" formControlName="phoneNumber">
+
+    <label for="email">Email</label>
+    <input type="text" id="email" formControlName="email">
+
+    <label for="password">Password</label>
+    <input type="password" id="password" formControlName="password">
+
+    <label for="role">Role</label>
+    <select id="role" formControlName="role">
+      <option value="client">Client</option>
+      <option value="designer">Designer</option>
+    </select>
+
+    <div *ngIf="registrationForm.controls['role'].value === 'designer'">
+      <label for="description">Description</label>
+      <textarea id="description" formControlName="description"></textarea>
+
+      <div class="form-check" *ngIf="registrationForm.value.role === 'designer'">
+        <label>Abilities</label>
+        <div class="checkbox">
+          <label><input type="checkbox" formControlName="ui_ux"> UI/UX</label>
+        </div>
+        <div class="checkbox">
+          <label><input type="checkbox" formControlName="ar_vr"> AR/VR</label>
+        </div>
+        <div class="checkbox">
+          <label><input type="checkbox" formControlName="digital"> Digital</label>
+        </div>
+        <div class="checkbox">
+          <label><input type="checkbox" formControlName="animation"> Animation</label>
+        </div>
+        <div class="checkbox">
+          <label><input type="checkbox" formControlName="film_editing"> Film Editing</label>
+        </div>
+        <div class="checkbox">
+          <label><input type="checkbox" formControlName="visual_effects"> Visual Effects</label>
+        </div>
+        <div class="checkbox">
+          <label><input type="checkbox" formControlName="three_motion"> 3D Motion</label>
+        </div>
+        <div class="checkbox">
+          <label><input type="checkbox" formControlName="three_art"> 3D Art</label>
+        </div>
+        <!-- și așa mai departe -->
+      </div>
+    </div>
+
+    <button type="submit">Înregistrare</button>
+  </form>
+
+</div>
+
+<script>
+  document.getElementById('designer').addEventListener('change', function () {
+    document.getElementById('designerFields').style.display = 'block';
+  });
+
+  document.getElementById('client').addEventListener('change', function () {
+    document.getElementById('designerFields').style.display = 'none';
+  });
+</script>
+
+

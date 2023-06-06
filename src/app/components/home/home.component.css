@@ -1,0 +1,78 @@
+.center-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 70vh;
+  background-color: transparent; /* Set the background color to transparent */
+  color: white;
+  margin-bottom: 70px;
+  font-size: 60px;
+  font-weight: bolder;
+  padding: 70px;
+  position: relative; /* Add this line to enable positioning */
+}
+
+.center-content:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: url('/assets/pw1.png');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 26.5%;
+  z-index: -1; /* Set a negative z-index to place it behind the content */
+}
+
+.center-content .container {
+  text-align: center;
+}
+
+.center-content h1 {
+  margin: 0;
+}
+
+.button-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 30px;
+}
+
+.button {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: -10px 50px;
+  border-radius: 25px;
+  border: none;
+  overflow: hidden;
+  background: yellow;
+  color: black;
+  transition-duration: 0.3s;
+}
+
+.button-text {
+  transform: translateX(15px);
+  font-size: 1.5em;
+  font-weight: 700;
+}
+
+.iconer {
+  transform: translateY(50px);
+  transition-duration: 0.3s;
+}
+
+.button:hover .button-text {
+  transform: translateX(0px);
+}
+
+.button:hover .iconer {
+  transform: translateY(0px);
+}
+
+
+
+

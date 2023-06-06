@@ -1,0 +1,21 @@
+<app-navbar></app-navbar>
+<div class="container">
+  <form [formGroup]="loginForm" (ngSubmit)="onClickSubmit()">
+  <label for="email">Email</label>
+  <input type="email" id="email" formControlName="email" required>
+
+  <label for="password">Password</label>
+  <input type="password" id="password" formControlName="password" required>
+
+  <button type="submit">Log in</button>
+</form>
+</div>
+<script>
+  document.getElementById('designer').addEventListener('change', function () {
+    document.getElementById('designerFields').style.display = 'block';
+  });
+
+  document.getElementById('client').addEventListener('change', function () {
+    document.getElementById('designerFields').style.display = 'none';
+  });
+</script>
