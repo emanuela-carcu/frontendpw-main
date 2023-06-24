@@ -35,14 +35,18 @@ export class LoginComponent implements OnInit {
     this.authService.login(this.loginForm.get("email")?.value, this.loginForm.get("password")?.value).subscribe(
         data => {
           this.tokenStorage.saveToken(data.jwtToken);
-          this.tokenStorage.saveUser(data);
-
+          this.tokenStorage.saveUserRole(data.role);
+          console.log(data.role);
           this.isLoginFailed = false;
           this.isLoggedIn = true;
-          this.route.navigate(['/home'])
-              .then(() => {
-                window.location.reload();
-              });
+
+          if(this.tokenStorage.getRole() === "DESINGER") {
+
+          }
+          // this.route.navigate(['/home'])
+          //     .then(() => {
+          //       window.location.reload();
+          //     });
         },
         err => {
           this.errorMessage = err.error.message;

@@ -25,7 +25,6 @@ export class SignupComponent {
       visual_effects: [''],
       three_motion: [''],
       three_art: [''],
-      // adăugați câmpul pentru parolă
       password: ['', Validators.required]
     });
   }
