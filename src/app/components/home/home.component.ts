@@ -10,6 +10,6 @@ export class HomeComponent {
   constructor(private router: Router) { }
 
   handleClick(): void {
-    this.router.navigate(['/contact']); // Replace '/contact' with the actual path of your contact page
+    this.router.navigate(['/contact']);
   }
 }

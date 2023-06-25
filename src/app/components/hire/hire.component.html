@@ -1,1 +1,34 @@
 <app-navbar></app-navbar>
+<div class="container-grid">
+
+    <div class="grid-item" *ngFor="let user of users">
+        <h2 class="name">{{ user.firstName }} {{ user.lastName }}</h2>
+        <p class="description">{{ user.description }}</p>
+        <button class="button-hire" (click)="openModal()">Hire</button>
+    </div>
+
+    <div #hireModal id="hireModal" class="modal" [style.display]="showModal ? 'block' : 'none'">
+        <div class="modal-content">
+            <span class="close" (click)="closeModal()">&times;</span>
+            <h2>HIRE</h2>
+            <form>
+                <div class="form-group">
+                    <label for="description">Description:</label>
+                    <textarea id="description" name="description" [(ngModel)]="description"></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="service">Type of Service:</label>
+                    <select id="service" name="service" [(ngModel)]="selectedService" *ngIf="services">
+                        <option *ngFor="let service of services" [value]="service.service_name">{{ service.service_name }}</option>
+                    </select>
+                </div>
+                <div class="price-container">
+                    <p>Price: <span id="price">{{ getPrice() }}</span></p>
+                </div>
+                <div class="form-group">
+                    <button class="button-hire-modal" (click)="hire()">Hire</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

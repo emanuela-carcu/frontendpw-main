@@ -1,0 +1,45 @@
+.container-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+
+
+.grid-item {
+    width: 400px;
+    background-color: #39393957;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    margin: auto;
+    margin-top: 50px;
+}
+
+.details {
+    color: #ffffff;
+    display: flex;
+    justify-content: space-between;
+    width: 100%; /* make .details take up the full width of .grid-item */
+    margin-top: 20px;
+}
+
+.grid-item {
+    text-align: center;
+}
+
+.service-name {
+    color: #ffff00;
+}
+.h2 {
+    font-size: 30px;
+}
+
+.description, .details {
+    color: #ffffff;
+    font-size: 20px;
+}
+
+.fee, .duration {
+    display: inline-block;
+}

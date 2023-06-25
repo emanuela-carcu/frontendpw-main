@@ -22,11 +22,11 @@
       <option value="DESIGNER">Designer</option>
     </select>
 
-    <div *ngIf="registrationForm.controls['role'].value === 'designer'">
+    <div class="form-check" *ngIf="registrationForm.value.role === 'DESIGNER'">
       <label for="description">Description</label>
       <textarea id="description" formControlName="description"></textarea>
 
-      <div class="form-check" *ngIf="registrationForm.value.role === 'designer'">
+      <div class="form-check" *ngIf="registrationForm.value.role === 'DESIGNER'">
         <label>Abilities</label>
         <div class="checkbox">
           <label><input type="checkbox" formControlName="ui_ux"> UI/UX</label>

@@ -1,1 +1,11 @@
 <app-navbar></app-navbar>
+<div class="container-grid">
+    <div class="grid-item" *ngFor="let service of services">
+        <h2 class="service-name">{{service.service_name}}</h2>
+        <p class="description">{{service.description}}</p>
+        <div class="details">
+            <span class="fee">Fee - {{service.fee}}</span>
+            <span class="duration">Duration - {{service.duration}}</span>
+        </div>
+    </div>
+</div>

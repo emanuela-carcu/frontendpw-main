@@ -39,7 +39,7 @@ export class LoginComponent implements OnInit {
           console.log(data.role);
           this.isLoginFailed = false;
           this.isLoggedIn = true;
-
+          this.route.navigate(['/home']);
           if(this.tokenStorage.getRole() === "DESINGER") {
 
           }

@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import {TokenStorageService} from "../../services/token-storage.service";
+import { TokenStorageService } from "../../services/token-storage.service";
+import { Router } from "@angular/router";
 
 @Component({
   selector: 'app-navbar',
@@ -7,8 +8,16 @@ import {TokenStorageService} from "../../services/token-storage.service";
   styleUrls: ['./navbar.component.css']
 })
 export class NavbarComponent {
+  public token: string | null = null;
+  public role: any;
 
-  constructor(public tokenStorage: TokenStorageService) {
+  constructor(public tokenStorage: TokenStorageService, private router: Router) {
+    this.tokenStorage.getTokenObservable().subscribe(token => this.token = token);
+    this.tokenStorage.getRoleObservable().subscribe(role => this.role = role);
   }
-  // Define any additional properties or methods you need for your navbar component
+
+  logout(): void {
+    this.tokenStorage.signOut();
+    this.router.navigate(['/login']);
+  }
 }
