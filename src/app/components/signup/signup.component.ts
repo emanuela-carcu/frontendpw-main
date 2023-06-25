@@ -1,5 +1,8 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import {AuthService} from "../../services/auth.service";
+import {Router} from "@angular/router";
+import {User} from "../../model/user";
 
 @Component({
   selector: 'app-signup',
@@ -9,7 +12,9 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 export class SignupComponent {
   registrationForm: FormGroup;
 
-  constructor(private formBuilder: FormBuilder) {
+  constructor(private authService: AuthService,
+              private route: Router,
+              private formBuilder: FormBuilder) {
     this.registrationForm = this.formBuilder.group({
       lastName: ['', Validators.required],
       firstName: ['', Validators.required],
@@ -29,11 +34,21 @@ export class SignupComponent {
     });
   }
 
-  submitForm() {
+  onClickSubmit(): void {
     if (this.registrationForm.valid) {
-      // Logic pentru înregistrare
-      console.log('Form submitted:', this.registrationForm.value);
-      // Puteți adăuga aici logica pentru trimiterea datelor către server sau procesarea lor în alt mod
+      const user = {
+        lastName: this.registrationForm.value.lastName,
+        firstName: this.registrationForm.value.firstName,
+        password: this.registrationForm.value.password,
+        phoneNumber: this.registrationForm.value.phoneNumber,
+        role: this.registrationForm.value.role
+      }
+      this.authService.register(user).subscribe(
+          data => {
+          },
+          err => {
+          }
+      );
     }
   }
 }

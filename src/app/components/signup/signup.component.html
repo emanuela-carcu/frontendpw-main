@@ -1,6 +1,6 @@
 <app-navbar></app-navbar>
 <div class="container">
-  <form [formGroup]="registrationForm">
+  <form [formGroup]="registrationForm" (ngSubmit)="onClickSubmit()">
     <label for="lastName">Last Name</label>
     <input type="text" id="lastName" formControlName="lastName">
 
@@ -18,8 +18,8 @@
 
     <label for="role">Role</label>
     <select id="role" formControlName="role">
-      <option value="client">Client</option>
-      <option value="designer">Designer</option>
+      <option value="CLIENT">Client</option>
+      <option value="DESIGNER">Designer</option>
     </select>
 
     <div *ngIf="registrationForm.controls['role'].value === 'designer'">
